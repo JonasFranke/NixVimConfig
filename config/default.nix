@@ -1,62 +1,48 @@
-{ pkgs, ... }:
-{
+_: {
   imports = [
-    ./plugins.nix
+    # General configuration
+    ./settings.nix
     ./keymaps.nix
-  ];
+    ./auto_cmds.nix
 
-  nixpkgs.config.allowUnfree = true;
+    # Colorscheme
+    ./plugins/themes/tokyonight.nix
 
-  globals = {
-    mapleader = " ";
-    maplocalleader = " ";
-  };
+    # Completion
+    ./plugins/cmp/cmp.nix
+    ./plugins/cmp/luasnip.nix
 
-  clipboard = {
-    register = "unnamedplus";
-    providers.wl-copy.enable = true;
-  };
+    # Editor
+    ./plugins/editor/neo-tree.nix
+    ./plugins/editor/treesitter.nix
+    ./plugins/editor/undotree.nix
+    ./plugins/editor/todo-comments.nix
+    ./plugins/editor/ts-autotag.nix
 
-  colorschemes.tokyonight.enable = true;
+    # Git
+    ./plugins/git/gitsigns.nix
 
-  opts = {
-    number = true;
-    relativenumber = true;
-    shiftwidth = 2;
-    tabstop = 2;
-    expandtab = true;
-  };
+    # LSP
+    ./plugins/lsp/lsp.nix
+    ./plugins/lsp/conform.nix
+    ./plugins/lsp/diagnostic.nix
+    ./plugins/lsp/jdtls.nix
 
-  extraPackages = with pkgs; [
-    git
-    fzf
-    ripgrep
-    jdt-language-server
-    vscode-extensions.vscjava.vscode-java-debug
-    vscode-extensions.vscjava.vscode-java-test
-    ruff
-    biome
-  ];
+    # UI
+    ./plugins/ui/lualine.nix
+    ./plugins/ui/notify.nix
+    ./plugins/ui/startup.nix
+    ./plugins/ui/which-key.nix
 
-  autoGroups = {
-    highlight_yank = { };
-    vim_enter = { };
-    indentscope = { };
-    restore_cursor = { };
-  };
+    # Utils
+    ./plugins/utils/fzf-lua.nix
+    ./plugins/utils/comment.nix
+    ./plugins/utils/quickmath.nix
+    ./plugins/utils/lightbulb.nix
 
-  autoCmd = [
-    {
-      group = "highlight_yank";
-      event = [ "TextYankPost" ];
-      pattern = "*";
-      callback = {
-        __raw = ''
-          function()
-            vim.highlight.on_yank()
-          end
-        '';
-      };
-    }
+    # Languages
+    ./plugins/langs/nix.nix
+    ./plugins/langs/typescript.nix
+    ./plugins/langs/vimtex.nix
   ];
 }

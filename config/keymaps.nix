@@ -1,5 +1,6 @@
-{
+_: {
   keymaps = [
+    # File explorer
     {
       mode = "n";
       key = "<leader>e";
@@ -9,6 +10,7 @@
         desc = "Toggle Neo-tree";
       };
     }
+    # Window navigation
     {
       mode = "n";
       key = "<C-h>";
@@ -45,6 +47,7 @@
         silent = true;
       };
     }
+    # Quickmath
     {
       mode = "n";
       key = "<leader>m";
@@ -54,6 +57,7 @@
         desc = "Invoke Quickmath";
       };
     }
+    # Undotree
     {
       mode = "n";
       key = "<leader>ut";

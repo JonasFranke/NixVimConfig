@@ -1,36 +1,50 @@
 {
-  description = "JonasFranke's NixVim config";
+  description = "JonasFranke's NixVim configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       nixvim,
+      flake-parts,
       ...
     }:
-    let
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
         "aarch64-linux"
       ];
-      forAllSystems = nixpkgs.lib.genAttrs systems;
-    in
-    {
-      packages = forAllSystems (system: {
-        default =
-          let
-            configuration = nixvim.lib.evalNixvim {
-              inherit system;
-              modules = [ ./config ];
-            };
-          in
-          configuration.config.build.package;
-      });
+
+      perSystem =
+        { system, ... }:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          nixvimLib = nixvim.lib.${system};
+          nixvimModule = {
+            inherit pkgs;
+            module = ./config;
+          };
+        in
+        {
+          checks = {
+            default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+          };
+
+          packages = {
+            default = nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimModule;
+          };
+        };
     };
 }
