@@ -67,6 +67,16 @@ _: {
         desc = "Undotree";
       };
     }
+    # GitBlame
+    {
+      mode = "n";
+      key = "<leader>g";
+      action = "<cmd>GitBlameToggle<CR>";
+      options = {
+        silent = true;
+        desc = "GitBlame";
+      };
+    }
     # Bufferline tab navigation
     {
       mode = "n";
