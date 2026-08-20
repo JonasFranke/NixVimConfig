@@ -9,5 +9,5 @@ let
   importsList = map (name: folder + "/${name}") (builtins.attrNames validFiles);
 in
 {
-  imports = importsList ++ [ ./plugins ];
+  imports = importsList;
 }
