@@ -25,7 +25,7 @@
       ];
 
       perSystem =
-        { system, ... }:
+        { system, pkgs, ... }:
         let
           pkgs = import nixpkgs {
             inherit system;
@@ -45,6 +45,8 @@
           packages = {
             default = nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimModule;
           };
+
+          formatter = pkgs.nixfmt-tree;
         };
     };
 }
