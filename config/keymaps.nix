@@ -67,5 +67,33 @@ _: {
         desc = "Undotree";
       };
     }
+    # Bufferline tab navigation
+    {
+      mode = "n";
+      key = "<S-h>";
+      action = "<cmd>BufferLineCyclePrev<cr>";
+      options = {
+        silent = true;
+        desc = "Previous buffer tab";
+      };
+    }
+    {
+      mode = "n";
+      key = "<S-l>";
+      action = "<cmd>BufferLineCycleNext<cr>";
+      options = {
+        silent = true;
+        desc = "Next buffer tab";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>bd";
+      action = "<cmd>bdelete<cr>";
+      options = {
+        silent = true;
+        desc = "Close buffer";
+      };
+    }
   ];
 }
