@@ -1,6 +1,7 @@
 _: {
   plugins.treesitter = {
     enable = true;
+    highlight.disable = [ "latex" ];
     settings = {
       ensureInstalled = [
         "python"
