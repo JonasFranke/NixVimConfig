@@ -21,6 +21,19 @@ _: {
       };
       # Infra / DevOps
       docker_language_server.enable = true;
+      # Nix - full nixpkgs-aware completions (pkgs.*, lib.*, stdenv.mkDerivation attrs, etc.)
+      nixd = {
+        enable = true;
+        settings = {
+          nixpkgs = {
+            # Evaluates nixpkgs so nixd can resolve completions from the real package tree
+            expr = "import <nixpkgs> {}";
+          };
+          formatting = {
+            command = [ "nixfmt" ];
+          };
+        };
+      };
       # Editor tooling
       lua_ls.enable = true;
       marksman.enable = true;
