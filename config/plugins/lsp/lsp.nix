@@ -34,8 +34,9 @@ _: {
           };
         };
       };
-      # C/C++
+      # C/C++ — clangd for source files, neocmake for CMakeLists.txt
       clangd.enable = true;
+      neocmake.enable = true;
       # Editor tooling
       lua_ls.enable = true;
       marksman.enable = true;
