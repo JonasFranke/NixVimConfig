@@ -39,12 +39,12 @@ _: {
     settings = {
       # Use gcc toolchain by default; override per-project via cmake presets
       cmake_generate_options = {
-        "-DCMAKE_EXPORT_COMPILE_COMMANDS" = 1;
         "-DCMAKE_C_COMPILER" = "gcc";
         "-DCMAKE_CXX_COMPILER" = "g++";
       };
-      # Build artefacts go to out/<Debug|Release|…> — keeps the project root clean
-      cmake_build_directory = "out/\${variant:buildType}";
+      # Use 'build' to match the project's existing cmake setup and the
+      # compilationDatabaseDirectory set in clangd's init_options
+      cmake_build_directory = "build";
       # Auto-symlink compile_commands.json → project root so clangd picks it up
       cmake_soft_link_compile_commands = true;
       # Regenerate on every CMakeLists.txt save

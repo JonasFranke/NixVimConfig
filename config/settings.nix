@@ -50,6 +50,7 @@
     ripgrep
     # C/C++ — clangd LSP + clang-format + codelldb debugger
     clang-tools
+    gcc # needed for clangd --query-driver to resolve gcc built-in include paths
     vscode-extensions.vadimcn.vscode-lldb
     # Java
     jdt-language-server

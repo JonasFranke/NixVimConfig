@@ -35,7 +35,24 @@ _: {
         };
       };
       # C/C++ — clangd for source files, neocmake for CMakeLists.txt
-      clangd.enable = true;
+      clangd = {
+        enable = true;
+        # Override the launch command to pass flags directly to clangd.
+        # --query-driver: lets clangd interrogate gcc/g++ for their built-in
+        #   include paths. Required when using gcc (not clang) as the compiler,
+        #   otherwise clangd can't resolve system headers and Qt6 headers.
+        # --compile-commands-dir: tells clangd where to find compile_commands.json
+        #   (cmake-tools symlinks it to the project root, but this is a fallback).
+        cmd = [
+          "clangd"
+          "--query-driver=/run/current-system/sw/bin/g++,/run/current-system/sw/bin/gcc,**/bin/g++,**/bin/gcc"
+          "--background-index"
+          "--clang-tidy"
+          "--completion-style=detailed"
+          "--header-insertion=iwyu"
+          "--compile-commands-dir=build"
+        ];
+      };
       neocmake.enable = true;
       # Editor tooling
       lua_ls.enable = true;
