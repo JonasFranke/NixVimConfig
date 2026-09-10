@@ -34,6 +34,8 @@ _: {
           };
         };
       };
+      # C/C++
+      clangd.enable = true;
       # Editor tooling
       lua_ls.enable = true;
       marksman.enable = true;

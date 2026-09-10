@@ -48,6 +48,9 @@
     git
     fzf
     ripgrep
+    # C/C++ — clangd LSP + clang-format + codelldb debugger
+    clang-tools
+    vscode-extensions.vadimcn.vscode-lldb
     # Java
     jdt-language-server
     vscode-extensions.vscjava.vscode-java-debug

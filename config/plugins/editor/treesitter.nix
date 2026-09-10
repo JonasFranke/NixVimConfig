@@ -5,6 +5,8 @@ _: {
     settings = {
       ensureInstalled = [
         "python"
+        "c"
+        "cpp"
         "nix"
         "lua"
         "bash"
