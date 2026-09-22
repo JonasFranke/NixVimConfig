@@ -197,7 +197,10 @@ _: {
       };
     }
     {
-      mode = [ "n" "v" ];
+      mode = [
+        "n"
+        "v"
+      ];
       key = "<leader>dh";
       action = "<cmd>lua require('dap.ui.widgets').hover()<cr>";
       options = {
