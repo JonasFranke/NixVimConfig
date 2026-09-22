@@ -77,6 +77,7 @@ _: {
         };
       };
       harper_ls.enable = true;
+      sqls.enable = true;
     };
   };
 }
