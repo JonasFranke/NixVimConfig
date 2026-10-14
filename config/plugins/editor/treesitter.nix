@@ -19,6 +19,7 @@ _: {
         "typescript"
         "tsx"
         "java"
+        "haskell"
       ];
       highlight.enable = true;
       indent.enable = true;

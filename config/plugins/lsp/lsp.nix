@@ -57,6 +57,11 @@ _: {
       # Editor tooling
       lua_ls.enable = true;
       marksman.enable = true;
+      # Haskell
+      hls = {
+        enable = true;
+        installGhc = true;
+      };
       # Python
       pyright.enable = true;
       # YAML with schema support
