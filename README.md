@@ -40,6 +40,15 @@ home.packages = [
 ];
 ```
 
+### Use as default editor
+To use nixvim as your default editor add these environment variables.
+```nix
+environment.variables = {
+  EDITOR = "nvim";
+  VISUAL = "nvim";
+};
+```
+
 ## Structure
 
 ```
