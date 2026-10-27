@@ -30,6 +30,7 @@ _: {
 
     # UI
     ./plugins/ui/lualine.nix
+    ./plugins/ui/noice.nix
     ./plugins/ui/notify.nix
     ./plugins/ui/startup.nix
     ./plugins/ui/which-key.nix
