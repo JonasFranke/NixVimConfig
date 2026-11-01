@@ -6,7 +6,7 @@ _: {
     ./auto_cmds.nix
 
     # Colorscheme
-    ./plugins/themes/tokyonight.nix
+    ./plugins/themes/nord.nix
 
     # Completion
     ./plugins/cmp/cmp.nix
