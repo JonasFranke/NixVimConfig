@@ -1,3 +1,4 @@
-_: {
-  colorschemes.tokyonight.enable = true;
+{ lib, ... }:
+{
+  colorschemes.tokyonight.enable = lib.mkDefault true;
 }
