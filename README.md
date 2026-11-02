@@ -40,6 +40,22 @@ home.packages = [
 ];
 ```
 
+### Use cachix
+```nix
+{
+  nix = {
+    settings = {
+      substituters = [
+        "https://jonasfranke.cachix.org"
+      ];
+      trusted-public-keys = [
+        "jonasfranke.cachix.org-1:3nZ2r+ZbqkEi1Iu75vv/Kth9v5eTqzvSoqqDUcZ0acA="
+      ];
+    };
+  };
+}
+```
+
 ### Use as default editor
 To use nixvim as your default editor add these environment variables.
 ```nix
