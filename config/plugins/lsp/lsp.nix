@@ -3,8 +3,21 @@ _: {
     enable = true;
     inlayHints = true;
     servers = {
-      # Web
-      biome.enable = true;
+      # Web & Markdown
+      biome = {
+        enable = true;
+        filetypes = [
+          "javascript"
+          "javascriptreact"
+          "typescript"
+          "typescriptreact"
+          "json"
+          "jsonc"
+          "css"
+          "graphql"
+          "markdown"
+        ];
+      };
       html.enable = true;
       # CSS modules support for Next.js
       cssls.enable = true;
