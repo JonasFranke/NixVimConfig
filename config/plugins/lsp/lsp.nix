@@ -6,6 +6,7 @@ _: {
       # Web & Markdown
       biome = {
         enable = true;
+        packageFallback = true;
         filetypes = [
           "javascript"
           "javascriptreact"
