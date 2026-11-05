@@ -14,6 +14,7 @@ _: {
         json = [ "biome" ];
         jsonc = [ "biome" ];
         css = [ "biome" ];
+        markdown = [ "biome" ];
         python = [ "ruff_format" ];
         c = [ "clang_format" ];
         cpp = [ "clang_format" ];
