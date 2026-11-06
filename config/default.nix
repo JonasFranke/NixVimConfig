@@ -40,6 +40,7 @@ _: {
     ./plugins/utils/comment.nix
     ./plugins/utils/quickmath.nix
     ./plugins/utils/lightbulb.nix
+    ./plugins/utils/direnv.nix
 
     # Languages
     ./plugins/langs/nix.nix
