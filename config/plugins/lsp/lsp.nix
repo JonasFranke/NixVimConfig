@@ -2,6 +2,13 @@ _: {
   plugins.lsp = {
     enable = true;
     inlayHints = true;
+    keymaps = {
+      silent = true;
+      lspBuf = {
+        gd = "definition";
+        gD = "declaration";
+      };
+    };
     servers = {
       # Web & Markdown
       biome = {
