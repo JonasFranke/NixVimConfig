@@ -1,3 +1,3 @@
 _: {
-  plugins.typescript-tools.enable = true;
+  plugins.lsp.servers.vtsls.enable = true;
 }
