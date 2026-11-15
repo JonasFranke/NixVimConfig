@@ -59,6 +59,7 @@
     # Python
     ruff
     # Web
-    biome
+    nodejs
+    fourmolu
   ];
 }
